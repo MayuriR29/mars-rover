@@ -1,4 +1,5 @@
 const { getUserInput, rl } = require("./readline-helper");
+import RoverPosition from "./RoverPosition";
 
 const main = async () => {
   const x = await getUserInput(
@@ -15,6 +16,8 @@ const main = async () => {
     "Specify the instructions for the mars rover (e.g. LMLMLMLMM):"
   );
   console.log("z is", z);
+
+  //  getRoverPosition(x, y, z);
 
   // TODO: include the functions that you've implemented for this kata
 
