@@ -1,9 +1,12 @@
-const getRoverPosition = require("./RoverPosition");
+const RoverPosition = require("./RoverPosition");
 
-test.skip("should console the input", () => {
-  const x = "5 5";
-  const y = "1 2 N";
-  const z = "LMLM";
+test("should return the position of rover 1", () => {
+  const rover1 = new RoverPosition(1, 2, "N", "LMLMLMLMM");
+  const rover2 = new RoverPosition(3, 3, "E", "MMRMMRMRRM");
 
-  expect(getRoverPosition(x, y, z)).toBe(1);
+  const result = rover1.processAllInstructions("LMLMLMLMM".split(""));
+  const result2 = rover2.processAllInstructions("MMRMMRMRRM".split(""));
+
+  expect(result).toEqual({ xCordinate: 1, yCoordinate: 3, direction: "N" });
+  expect(result2).toEqual({ xCordinate: 5, yCoordinate: 1, direction: "E" });
 });

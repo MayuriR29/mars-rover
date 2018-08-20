@@ -1,9 +1,8 @@
 class RoverPosition {
-  constructor(xCordinate, yCoordinate, direction, instructionsForRover) {
+  constructor(xCordinate, yCoordinate, direction) {
     this.xCordinate = xCordinate;
     this.yCoordinate = yCoordinate;
     this.direction = direction;
-    this.instructionsForRover = instructionsForRover;
   }
 
   turnLeft(direction) {
@@ -53,7 +52,7 @@ class RoverPosition {
         this.yCoordinate = this.yCoordinate - 1;
         break;
       case "E":
-        this.xCordinate = this.xCordinate - 1;
+        this.xCordinate = this.xCordinate + 1;
         break;
     }
     return this;
@@ -70,19 +69,15 @@ class RoverPosition {
       this.moveForward(this.direction);
       return;
     }
+    return this;
   }
 
   processAllInstructions(instructionsForRover) {
-    // for all instrutions, call processInstruction();
-    this.instructionsForRover = instructionsForRover.split("");
-    console.log(this.instructionsForRover);
-    this.instructionsForRover.forEach(eachInstruction => {
+    instructionsForRover.forEach(eachInstruction => {
       this.processEachInstruction(eachInstruction);
     });
+    return this;
   }
 }
 
-const test = new RoverPosition(1, 2, "N", "LMLMLMLMM");
-test.processAllInstructions("LMLMLMLMM");
-console.log(test);
 module.exports = RoverPosition;
