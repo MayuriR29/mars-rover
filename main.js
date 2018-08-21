@@ -17,13 +17,12 @@ const main = async () => {
     "Specify the instructions for the mars rover (e.g. LMLMLMLMM):"
   );
   console.log("z is", z);
-  const instructions = z.split("");
+  const instructions = z.split(""); //separate function to parse input
 
   const roverPositionInput = new RoverPosition(
     input[0],
     input[1],
-    input[2],
-    instructions
+    input[2]
   );
   const finalPosition = roverPositionInput.processAllInstructions(instructions);
   // TODO: include the functions that you've implemented for this kata
