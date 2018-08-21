@@ -5,8 +5,8 @@ class RoverPosition {
     this.direction = direction;
   }
 
-  turnLeft(direction) {
-    switch (direction) {
+  turnLeft() {
+    switch (this.direction) {
       case "N":
         this.direction = "W";
         break;
@@ -22,8 +22,8 @@ class RoverPosition {
     }
     return this;
   }
-  turnRight(direction) {
-    switch (direction) {
+  turnRight() {
+    switch (this.direction) {
       case "N":
         this.direction = "E";
         break;
@@ -40,8 +40,8 @@ class RoverPosition {
     return this;
   }
 
-  moveForward(direction) {
-    switch (direction) {
+  moveForward() { //consider plateau size,declare global variables for L,R,M
+    switch (this.direction) {
       case "N":
         this.yCoordinate = this.yCoordinate + 1;
         break;
@@ -60,13 +60,13 @@ class RoverPosition {
 
   processEachInstruction(eachInstruction) {
     if (eachInstruction === "L") {
-      this.turnLeft(this.direction);
+      this.turnLeft();
       return;
     } else if (eachInstruction === "R") {
-      this.turnRight(this.direction);
+      this.turnRight();
       return;
     } else if (eachInstruction === "M") {
-      this.moveForward(this.direction);
+      this.moveForward();
       return;
     }
     return this;
